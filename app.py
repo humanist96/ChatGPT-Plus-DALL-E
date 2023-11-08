@@ -49,7 +49,7 @@ if submit and user_input:
 
     gpt_prompt.append({
         "role": "user",
-        "content": user_input
+        "content": user_input + "json"
     })
 
     with st.spinner("Waiting for ChatGPT..."):
