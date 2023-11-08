@@ -1,5 +1,8 @@
 import streamlit as st
 import openai
+from openai import OpenAI
+
+client = OpenAI()
 
 openai.api_key = st.secrets["api_key"]
 
@@ -49,7 +52,7 @@ if submit and user_input:
     })
 
     with st.spinner("Waiting for ChatGPT..."):
-        gpt_response = openai.ChatCompletion.create(
+        gpt_response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=gpt_prompt
         )
