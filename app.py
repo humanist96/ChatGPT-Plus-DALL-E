@@ -1,11 +1,11 @@
 import os
 import streamlit as st
-import openai
+#import openai
 from openai import OpenAI
 
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"),)
+client = OpenAI(api_key=st.secrets["api_key"])
 
-openai.api_key = st.secrets["api_key"]
+#openai.api_key = st.secrets["api_key"]
 
 st.title("Kevin의 AI 이미지 생성기")
 
@@ -53,7 +53,7 @@ if submit and user_input:
     })
 
     with st.spinner("Waiting for ChatGPT..."):
-        gpt_response = client.chat.completions.create(
+        gpt_response = openai.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=gpt_prompt
         )
@@ -62,9 +62,12 @@ if submit and user_input:
     st.write(prompt)
 
     with st.spinner("Waiting for DALL-E..."):
-        dalle_response = openai.Image.create(
-            prompt=prompt,
-            size=size
+        dalle_response = client.images.generate(
+        model="dall-e-3",
+          prompt=prompt,
+          size=size,
+          quality="standard",
+          n=1,
         )
 
     st.image(dalle_response["data"][0]["url"])
