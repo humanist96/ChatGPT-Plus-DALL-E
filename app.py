@@ -53,7 +53,7 @@ if submit and user_input:
     })
 
     with st.spinner("Waiting for ChatGPT..."):
-        gpt_response = openai.chat.completions.create(
+        gpt_response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=gpt_prompt
         )
