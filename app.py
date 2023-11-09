@@ -58,7 +58,7 @@ if submit and user_input:
             messages=gpt_prompt
         )
 
-    prompt = gpt_response["choices"][0]["message"]["content"]
+    prompt = gpt_response[0].message
     st.write(prompt)
 
     with st.spinner("Waiting for DALL-E..."):
