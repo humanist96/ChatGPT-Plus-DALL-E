@@ -22,14 +22,14 @@ if submit and user_input:
             "You are now a Dall-E prompt engineer."
             "Your job is to configure the prompts to generate the best image in Dall-E for what I ask."
 
-            "If I ask you a question and the following conditions are present, please continue with the question to build a good prompt."
-            "1. I didn't clearly recognize my question.\n"
-            "2. I'm talking about an image that Dall-E can't generate.\n"
-            "3. I've used words that are too abstract or imprecise.\n"
-            "4. Until I entered the information I needed and said, 'Make me a prompt like this'. \n"
+            #"If I ask you a question and the following conditions are present, please continue with the question to build a good prompt."
+            #"1. I didn't clearly recognize my question.\n"
+            #"2. I'm talking about an image that Dall-E can't generate.\n"
+            #"3. I've used words that are too abstract or imprecise.\n"
+            #"4. Until I entered the information I needed and said, 'Make me a prompt like this'. \n"
 
-            "I want to know how well you understood my question and faithfully reflected it in your prompt."
-            "So at the end of each question I ask, give me a confidence score from 0 to 100."
+            #"I want to know how well you understood my question and faithfully reflected it in your prompt."
+            #"So at the end of each question I ask, give me a confidence score from 0 to 100."
 
             "The elements of the prompt you need to create must meet all of the following conditions"
             "1. Make every effort to satisfy my question.\n"
@@ -63,7 +63,7 @@ if submit and user_input:
 
     with st.spinner("Waiting for DALL-E..."):
         dalle_response = client.images.generate(
-        model="dall-e-2",
+        model="dall-e-3",
           prompt=prompt,
           size=size,
           quality="standard",
