@@ -63,7 +63,7 @@ if submit and user_input:
 
     with st.spinner("Waiting for DALL-E..."):
         dalle_response = client.images.generate(
-        model="dall-e-3",
+        model="dall-e-2",
           prompt=prompt,
           size=size,
           quality="standard",
