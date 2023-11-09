@@ -49,7 +49,7 @@ if submit and user_input:
 
     gpt_prompt.append({
         "role": "user",
-        "content": user_input + "json"
+        "content": user_input
     })
 
     with st.spinner("Waiting for ChatGPT..."):
@@ -70,4 +70,4 @@ if submit and user_input:
           n=1,
         )
 
-    st.image(dalle_response["data"][0]["url"])
+    st.image(dalle_response.data[0].url)
