@@ -61,6 +61,9 @@ if submit and user_input:
     prompt = gpt_response.choices[0].message.content
     st.write(prompt)
 
+    #debuging
+    print(prompt)
+
     with st.spinner("Waiting for DALL-E..."):
         dalle_response = client.images.generate(
         model="dall-e-3",
